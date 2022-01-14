@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  StartViewController.swift
 //  CurrencyConverter
 //
 //  Created by Александр Савков on 11.01.22.
@@ -7,11 +7,7 @@
 
 import UIKit
 
-
-//UIColor(red: 0.8, green: 0.1, blue: 0.5, alpha: 1)
-
-
-class ViewController: UIViewController {
+class StartViewController: UIViewController {
     
     let textFieldOne: UITextField = {
         let textField = UITextField()
@@ -72,32 +68,23 @@ class ViewController: UIViewController {
         changeCurrencySecondButton.addTarget(self, action: #selector(changeCurrencySecondButtonTupped), for: .touchUpInside)
         textFieldOne.addTarget(self, action: #selector(updatetextFieldOne), for: .editingChanged)
         textFieldTwo.addTarget(self, action: #selector(updatetextFieldTwo), for: .editingChanged)
-        flagLabelOne.text = firstCurrent
-        flagLabelTwo.text = secondCurrent
+        flagLabelOne.text = firstCurrent + " " + FlagOfCountry[firstCurrent]!
+        flagLabelTwo.text = secondCurrent + " " + FlagOfCountry[secondCurrent]!
     }
-    
     
     // MARK: - Propetries
     var currencyCode: [String] = []
     var values: [Double] = []
     var activCurency = 0.0
-    var firstCurrent = "BYN"
-    var secondCurrent = "USD"
-    //    var firstCurrent: String?
-    //    var secondCurrent: String?
-    enum FlagOfCountry {
-        case 🇧🇾
-        case 🇺🇸
-        case 🇷🇺
-        case 🇪🇺
-    }
-    lazy var currencyPair = ["", ""]
-    
+    let FlagOfCountry = [
+        "BYN": "🇧🇾",
+        "USD": "🇺🇸",
+        "RUB": "🇷🇺",
+        "EUR": "🇪🇺"]
     
     // MARK: - Method
     
-    
-    @objc func updatetextFieldOne(input: Double) {
+    @objc func updatetextFieldOne() {
         guard let amountText = textFieldOne.text, let theAmountText = Double(amountText) else { return }
         if textFieldOne.text != "" {
             let total = theAmountText * activCurency
@@ -105,7 +92,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func updatetextFieldTwo(input: Double) {
+    @objc func updatetextFieldTwo() {
         guard let amountText = textFieldTwo.text, let theAmountText = Double(amountText) else { return }
         if textFieldTwo.text != "" {
             let total = theAmountText / activCurency
@@ -116,30 +103,29 @@ class ViewController: UIViewController {
     @objc func changeCurrencyOneButtonTupped() {
         let vc = ChoiceCurrencyVC()
         vc.buttonOneTupped = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     @objc func changeCurrencySecondButtonTupped() {
         let vc = ChoiceCurrencyVC()
         vc.buttonTwoTupped = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     func fetchJSON() {
         let stringUrl = "https://open.er-api.com/v6/latest/\(firstCurrent)"
         guard let url = URL(string: stringUrl) else { return }
         URLSession.shared.dataTask(with: url) { [self] (data, response, error) in
-            if error != nil { print(error!)
-                return }
-            
-            guard let safeData = data else { return }
-            
+            guard let safeData = data else {
+                print(String(describing: error))
+                return
+            }
             do {
                 let results = try JSONDecoder().decode(ExchangeRates.self, from: safeData)
                 self.currencyCode.append(contentsOf: results.rates.keys)
                 self.values.append(contentsOf: results.rates.values)
                 
-                let index = self.currencyCode.firstIndex(where: { $0 == self.secondCurrent })
+                let index = self.currencyCode.firstIndex(where: { $0 == secondCurrent })
                 activCurency = values[index!]
                 print("\(values[index!])")
                 
@@ -150,8 +136,7 @@ class ViewController: UIViewController {
     }
 }
 
-
-extension ViewController {
+extension StartViewController {
     func setConstrains() {
         
         view.addSubview(textFieldOne)
@@ -159,7 +144,7 @@ extension ViewController {
             textFieldOne.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             textFieldOne.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             textFieldOne.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            textFieldOne.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.1)
+            textFieldOne.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.15)
         ])
         
         view.addSubview(changeCurrencyOneButton)

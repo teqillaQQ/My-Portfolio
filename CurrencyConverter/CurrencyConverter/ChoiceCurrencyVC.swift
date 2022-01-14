@@ -9,7 +9,7 @@ import UIKit
 
 class ChoiceCurrencyVC: UIViewController {
 
-    let vc = ViewController()
+    let vc = StartViewController()
     
     let buttonBYN: UIButton = {
         let button = UIButton()
@@ -74,48 +74,30 @@ class ChoiceCurrencyVC: UIViewController {
     var buttonTwoTupped = false
     
     @objc func choiceBYN() {
-        if buttonOneTupped {
-            vc.firstCurrent = codeBYN
-            vc.currencyPair.append(codeBYN)
-            buttonOneTupped = false
-        } else if buttonTwoTupped {
-            vc.secondCurrent = codeBYN
-            buttonOneTupped = false
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
+        changeCurrent(code: codeBYN)
     }
     
     @objc func choiceEUR() {
-        if buttonOneTupped {
-            vc.firstCurrent = codeEUR
-            buttonOneTupped = false
-        } else if buttonTwoTupped {
-            vc.secondCurrent = codeEUR
-            buttonOneTupped = false
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
+        changeCurrent(code: codeEUR)
     }
     
     @objc func choiceRUB() {
-        if buttonOneTupped {
-            vc.firstCurrent = codeRUB
-            buttonOneTupped = false
-        } else if buttonTwoTupped {
-            vc.secondCurrent = codeRUB
-            buttonOneTupped = false
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
+        changeCurrent(code: codeRUB)
     }
     
     @objc func choiceUSD() {
+        changeCurrent(code: codeUSD)
+    }
+    
+    private func changeCurrent(code: String) {
         if buttonOneTupped {
-            vc.firstCurrent = codeUSD
+            firstCurrent = code
             buttonOneTupped = false
         } else if buttonTwoTupped {
-            vc.secondCurrent = codeUSD
+            secondCurrent = code
             buttonOneTupped = false
         }
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 }
 
