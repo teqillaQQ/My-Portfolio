@@ -7,6 +7,8 @@
 
 import Foundation
 
+var curentyArray = ["BYN", "EUR", "RUB", "USD"]
+
 struct ExchangeRates: Codable {
     let rates: [String: Double]
 }

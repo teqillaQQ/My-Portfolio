@@ -12,8 +12,10 @@
 		2E878482278D78F300AA6ED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E878481278D78F300AA6ED6 /* Assets.xcassets */; };
 		2E878485278D78F300AA6ED6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E878483278D78F300AA6ED6 /* LaunchScreen.storyboard */; };
 		2E87848D278D790C00AA6ED6 /* ExangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E87848C278D790C00AA6ED6 /* ExangeRates.swift */; };
-		2E87848F278D917900AA6ED6 /* ChoiceCurrencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E87848E278D917900AA6ED6 /* ChoiceCurrencyVC.swift */; };
-		2EED1EB227916E6500ACFE39 /* ActualPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EED1EB127916E6500ACFE39 /* ActualPair.swift */; };
+		2EFF0B0C279191AF00EA4AE3 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF0B0B279191AF00EA4AE3 /* CurrencyViewController.swift */; };
+		2EFF0B0F2791928C00EA4AE3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF0B0D2791928C00EA4AE3 /* CollectionViewCell.swift */; };
+		2EFF0B102791928C00EA4AE3 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EFF0B0E2791928C00EA4AE3 /* CollectionViewCell.xib */; };
+		335B0776279207FB00A2D7DE /* NetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B0775279207FB00A2D7DE /* NetWorkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +26,10 @@
 		2E878484278D78F300AA6ED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E878486278D78F300AA6ED6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E87848C278D790C00AA6ED6 /* ExangeRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExangeRates.swift; sourceTree = "<group>"; };
-		2E87848E278D917900AA6ED6 /* ChoiceCurrencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCurrencyVC.swift; sourceTree = "<group>"; };
-		2EED1EB127916E6500ACFE39 /* ActualPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActualPair.swift; sourceTree = "<group>"; };
+		2EFF0B0B279191AF00EA4AE3 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		2EFF0B0D2791928C00EA4AE3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		2EFF0B0E2791928C00EA4AE3 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		335B0775279207FB00A2D7DE /* NetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +62,34 @@
 		2E878477278D78F200AA6ED6 /* CurrencyConverter */ = {
 			isa = PBXGroup;
 			children = (
+				335B0778279215B000A2D7DE /* NetWorkingManager */,
+				335B07772792159400A2D7DE /* ViewControllers */,
 				2E878478278D78F200AA6ED6 /* AppDelegate.swift */,
+				2EFF0B0D2791928C00EA4AE3 /* CollectionViewCell.swift */,
 				2E87848C278D790C00AA6ED6 /* ExangeRates.swift */,
-				2EED1EB127916E6500ACFE39 /* ActualPair.swift */,
-				2E87847C278D78F200AA6ED6 /* StartViewController.swift */,
-				2E87848E278D917900AA6ED6 /* ChoiceCurrencyVC.swift */,
 				2E878481278D78F300AA6ED6 /* Assets.xcassets */,
+				2EFF0B0E2791928C00EA4AE3 /* CollectionViewCell.xib */,
 				2E878483278D78F300AA6ED6 /* LaunchScreen.storyboard */,
 				2E878486278D78F300AA6ED6 /* Info.plist */,
 			);
 			path = CurrencyConverter;
+			sourceTree = "<group>";
+		};
+		335B07772792159400A2D7DE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E87847C278D78F200AA6ED6 /* StartViewController.swift */,
+				2EFF0B0B279191AF00EA4AE3 /* CurrencyViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		335B0778279215B000A2D7DE /* NetWorkingManager */ = {
+			isa = PBXGroup;
+			children = (
+				335B0775279207FB00A2D7DE /* NetWorkManager.swift */,
+			);
+			path = NetWorkingManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +152,7 @@
 			files = (
 				2E878485278D78F300AA6ED6 /* LaunchScreen.storyboard in Resources */,
 				2E878482278D78F300AA6ED6 /* Assets.xcassets in Resources */,
+				2EFF0B102791928C00EA4AE3 /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,9 +163,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E87848F278D917900AA6ED6 /* ChoiceCurrencyVC.swift in Sources */,
-				2EED1EB227916E6500ACFE39 /* ActualPair.swift in Sources */,
+				2EFF0B0C279191AF00EA4AE3 /* CurrencyViewController.swift in Sources */,
+				2EFF0B0F2791928C00EA4AE3 /* CollectionViewCell.swift in Sources */,
 				2E87847D278D78F200AA6ED6 /* StartViewController.swift in Sources */,
+				335B0776279207FB00A2D7DE /* NetWorkManager.swift in Sources */,
 				2E878479278D78F200AA6ED6 /* AppDelegate.swift in Sources */,
 				2E87848D278D790C00AA6ED6 /* ExangeRates.swift in Sources */,
 			);
@@ -285,7 +309,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SM9FM2765B;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CurrencyConverter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -293,7 +317,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,7 +338,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = SM9FM2765B;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CurrencyConverter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -322,7 +346,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
